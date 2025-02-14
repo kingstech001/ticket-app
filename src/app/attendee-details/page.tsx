@@ -43,7 +43,7 @@ export default function FormPage() {
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const validateForm = () => {
-    let newErrors: {
+    const newErrors: {
       name?: string;
       email?: string;
       about?: string;

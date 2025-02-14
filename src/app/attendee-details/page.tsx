@@ -146,12 +146,12 @@ export default function FormPage() {
                 onChange={handleFileUpload}
               />
 
+            </div>
+          </div>
               {/* Error Message */}
               {errors.avatar && (
                 <p className="text-red-500 text-sm mt-2">{errors.avatar}</p>
               )}
-            </div>
-          </div>
           <div className="h-[4px] w-full bg-[#07373F] my-[32px]"></div>
 
           {/* Full Name Input */}
@@ -225,11 +225,17 @@ export default function FormPage() {
           </div>
 
           {/* Action Buttons */}
-          <div className="mt-4 flex gap-4">
-            <button onClick={() => router.back()} className="border px-4 py-2">
+          <div className="flex flex-col sm:flex-row gap-[24px] mt-8 text-[16px]">
+            <button
+              onClick={() => router.back()}
+              className="flex-1 border border-[#24A0B5] text-[#24A0B5] py-3 rounded-md  transition hover:bg-[#24A0B5] hover:text-white font-[Jejumyeongjo]"
+            >
               Back
             </button>
-            <button onClick={handleNext} className="px-4 py-2 text-white bg-green-500">
+            <button
+              onClick={handleNext}
+              className="flex-1 bg-[#24A0B5] text-white py-3 rounded-md  transition hover:bg-[#1F9AA8] font-[Jejumyeongjo]"
+            >
               Get My Ticket Free
             </button>
           </div>

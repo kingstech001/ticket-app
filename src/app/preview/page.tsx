@@ -68,7 +68,7 @@ export default function PreviewPage() {
         >
           {/* Ticket Details Card */}
           <div
-            className="p-[12px] rounded-[16px] md:rounded-[32px] bg-[#08252B] border border-[#0E464F]  text-center text-white max-w-[260px] mx-auto"
+            className="p-[12px]  rounded-[16px] md:rounded-[32px] bg-[#08252B] border border-[#0E464F]  text-center text-white max-w-[260px] mx-auto"
           >
             <h1 className="text-[34px] md:text-[32px] text-[#FFFFFF] road-rage">
               Techember Fest ’25

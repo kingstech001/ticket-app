@@ -153,7 +153,7 @@ const TicketSelection = () => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-[24px] mt-8 text-[16px]">
           <button
-            className="bg-transparent border-[#24A0B5] border-[1px] text-[#24A0B5] flex-1 py-3 rounded-md font-semibold transition font-[Jejumyeongjo]"
+            className="bg-transparent border-[#24A0B5] border-[1px] text-[#24A0B5] flex-1 py-3 rounded-md transition font-[Jejumyeongjo]"
             onClick={() => {
               localStorage.removeItem("ticketCount");
               localStorage.removeItem("selectedTicket");
@@ -163,7 +163,7 @@ const TicketSelection = () => {
             Cancel
           </button>
           <button
-            className="bg-[#24A0B5] text-[#FFFFFF] flex-1 py-3 rounded-md font-semibold transition font-[Jejumyeongjo]"
+            className="bg-[#24A0B5] text-[#FFFFFF] flex-1 py-3 rounded-md  transition font-[Jejumyeongjo]"
             onClick={handleNext}
           >
             Next

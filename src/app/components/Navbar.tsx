@@ -7,8 +7,8 @@ import { ArrowRight } from "lucide-react"; // Import the arrow icon
 
 const Navbar = () => {
   return (
-    <nav className=" p-4 font-[Jejumyeongjo] ">
-      <div className="container mx-auto flex justify-between items-center max-w-[1200px] border-[1px] border-[#197686] px-[16px] py-[12px] rounded-[24px] bg-[#05252C]">
+    <nav className=" p-4 font-[Jejumyeongjo] w-full">
+      <div className="container mx-auto flex justify-between items-center max-w-[1200px] border-[1px] border-[#197686] px-[16px] py-[12px] rounded-[24px] bg-[#05252C] ">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/">

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import ProgressBar from "../components/ProgressBar";
 import { HiOutlineCloudDownload } from "react-icons/hi";
 import { MdOutlineEmail } from "react-icons/md";
+import Image from "next/image";
 
 export default function FormPage() {
   const router = useRouter();
@@ -113,10 +114,12 @@ export default function FormPage() {
                 {avatar ? (
                   <div className="relative w-full h-full rounded-[32px] overflow-hidden">
                     {/* User Uploaded Image */}
-                    <img
+                    <Image
                       src={avatar}
                       alt="Avatar preview"
-                      className="w-full h-full object-cover rounded-[32px] transition-opacity duration-300 group-hover:opacity-50"
+                      fill
+                      unoptimized
+                      className="object-cover rounded-[32px] transition-opacity duration-300 group-hover:opacity-50"
                     />
                     {/* Overlay Content */}
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-white bg-[#0000000a] bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 text-center">

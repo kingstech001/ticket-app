@@ -63,8 +63,9 @@ export default function PreviewPage() {
         </p>
 
         <div 
-        ref={ticketRef}
-        className="min-h-[600px] bg-[url('/image/TICKET.svg')] bg-no-repeat bg-contain bg-center p-4 max-w-[300px] mx-auto">
+          ref={ticketRef}
+          className="min-h-[600px] bg-[url('/image/TICKET.svg')] bg-no-repeat bg-contain bg-center p-4 max-w-[300px] mx-auto"
+        >
           {/* Ticket Details Card */}
           <div
             className="p-[12px] rounded-[16px] md:rounded-[32px] bg-[#08252B] border border-[#0E464F]  text-center text-white max-w-[260px] mx-auto"
@@ -79,10 +80,12 @@ export default function PreviewPage() {
               📅 March 15, 2025 | 7:00 PM
             </p>
             {ticket.avatar && (
-              <img
+              <Image
                 src={ticket.avatar}
                 alt="Avatar"
-                className="w-[124px] object-cover rounded-[12px] border-[4px] border-[#24A0B5] mx-auto my-[20px]"
+                width={124}
+                height={124}
+                className="object-cover rounded-[12px] border-[4px] border-[#24A0B5] mx-auto my-[20px]"
               />
             )}
 
@@ -135,7 +138,7 @@ export default function PreviewPage() {
             alt="barcode"
             width={236}
             height={100}
-            className=" sm:pt-[20px] block mx-auto"
+            className="sm:pt-[20px] block mx-auto"
           />
         </div>
         <div className="flex flex-col sm:flex-row gap-[24px] mt-8 text-[16px]">

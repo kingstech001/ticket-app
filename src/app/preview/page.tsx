@@ -51,24 +51,29 @@ export default function PreviewPage() {
   return (
     <div className="mx-auto bg-[#041E23] border border-[#0E464F] rounded-[24px] md:rounded-[40px] p-[24px] md:p-[48px] max-w-[700px]">
       <div className="relative">
-        <ProgressBar step={3} />
-        <h1 className="text-[24px] md:text-[32px] mb-4 text-[#FFFFFF] font-[Jejumyeongjo] ">
-          Ready
-        </h1>
-        <h2 className=" mt-[32px] font-roboto font-bold text-[24px] text-[#fafafa] text-center">
+        <div className=" sm:flex justify-between items-center">
+          <h2 className="text-[24px] md:text-[32px] mb-4 text-[#FFFFFF] font-[Jejumyeongjo] ">
+            Ready
+          </h2>
+          <p className="text-start font-semibold text-white">Step 1 / 3</p>
+        </div>
+        <ProgressBar progress={90} />
+
+        <h2 className="mt-[32px] font-roboto font-bold text-[24px] text-[#fafafa] text-center">
           Your Ticket is Booked!
         </h2>
         <p className="mb-[32px] mt-[12px] text-[#fafafa] text-center text-[16px] font-roboto">
           You can download or check your email for a copy.
         </p>
 
-        <div 
+        {/* Fixed-size container for the background image, ticket card and barcode */}
+        <div
           ref={ticketRef}
-          className="min-h-[600px] bg-[url('/image/TICKET.svg')] bg-no-repeat bg-contain bg-center p-4 max-w-[300px] mx-auto"
+          className="w-[300px] h-[620px] bg-[url('/image/TICKET.svg')] bg-no-repeat bg-contain bg-center p-4 mx-auto"
         >
           {/* Ticket Details Card */}
           <div
-            className="p-[12px]  rounded-[16px] md:rounded-[32px] bg-[#08252B] border border-[#0E464F]  text-center text-white max-w-[260px] mx-auto"
+            className="p-[12px] rounded-[16px] md:rounded-[32px] bg-[#08252B] border border-[#0E464F] text-center text-white max-w-[260px] mx-auto"
           >
             <h1 className="text-[34px] md:text-[32px] text-[#FFFFFF] road-rage">
               Techember Fest ’25
@@ -134,11 +139,11 @@ export default function PreviewPage() {
             </div>
           </div>
           <Image
-            src="/image/Bar code.svg"
+            src="/image/BarCode.svg"
             alt="barcode"
             width={236}
             height={100}
-            className="sm:pt-[20px] block mx-auto"
+            className="pt-[30px] block mx-auto"
           />
         </div>
         <div className="flex flex-col sm:flex-row gap-[24px] mt-8 text-[16px]">

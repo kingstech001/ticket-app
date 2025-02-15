@@ -95,10 +95,14 @@ export default function FormPage() {
   return (
     <main className="max-w-[700px] mx-auto bg-[#041E23] p-[20px] md:p-[48px] border border-[#0E464F] rounded-[20px] md:rounded-[40px]">
       <div className="relative">
-        <h2 className="text-[24px] md:text-[32px] mb-4 text-[#FFFFFF] font-[Jejumyeongjo]">
-          Attendee Details
-        </h2>
-        <ProgressBar step={2} />
+        <div className=" sm:flex justify-between items-center">
+          <h2 className="text-[24px] md:text-[32px] mb-4 text-[#FFFFFF] font-[Jejumyeongjo]">
+            Attendee Details
+          </h2>
+          <p className="text-start font-semibold text-white">Step 1 / 3</p>
+        </div>
+
+        <ProgressBar progress={60} />
 
         <div className="p-[24px] rounded-[24px] md:rounded-[32px] bg-[#08252B] border-[1px] border-[#0E464F] my-[32px]">
           <div className="bg-[#052228] border-[1px] border-[#07373F] rounded-[24px] px-[24px] pt-[24px] pb-[68px]">
@@ -148,10 +152,10 @@ export default function FormPage() {
 
             </div>
           </div>
-              {/* Error Message */}
-              {errors.avatar && (
-                <p className="text-red-500 text-sm mt-2">{errors.avatar}</p>
-              )}
+          {/* Error Message */}
+          {errors.avatar && (
+            <p className="text-red-500 text-sm mt-2">{errors.avatar}</p>
+          )}
           <div className="h-[4px] w-full bg-[#07373F] my-[32px]"></div>
 
           {/* Full Name Input */}
@@ -163,9 +167,8 @@ export default function FormPage() {
               id="FullName"
               name="FullName"
               type="text"
-              className={`border border-[#07373F] p-3 w-full rounded-md bg-transparent text-white focus:outline-none ${
-                errors.name ? "border-red-500" : ""
-              }`}
+              className={`border border-[#07373F] p-3 w-full rounded-md bg-transparent text-white focus:outline-none ${errors.name ? "border-red-500" : ""
+                }`}
               placeholder="Full Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -189,9 +192,8 @@ export default function FormPage() {
                 id="email"
                 name="email"
                 type="email"
-                className={`border border-[#07373F] p-3 w-full rounded-md bg-transparent text-white pl-10 focus:outline-none placeholder-white ${
-                  errors.email ? "border-red-500" : ""
-                }`}
+                className={`border border-[#07373F] p-3 w-full rounded-md bg-transparent text-white pl-10 focus:outline-none placeholder-white ${errors.email ? "border-red-500" : ""
+                  }`}
                 placeholder="hello@avioflagos.io"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -211,9 +213,8 @@ export default function FormPage() {
             <textarea
               id="about"
               name="about"
-              className={`border border-[#07373F] p-3 w-full rounded-md bg-transparent text-white focus:outline-none ${
-                errors.about ? "border-red-500" : ""
-              }`}
+              className={`border border-[#07373F] p-3 w-full rounded-md bg-transparent text-white focus:outline-none ${errors.about ? "border-red-500" : ""
+                }`}
               placeholder="Textarea"
               value={about}
               onChange={(e) => setAbout(e.target.value)}

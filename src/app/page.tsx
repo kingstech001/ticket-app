@@ -16,7 +16,7 @@ const TicketSelection = () => {
   const { ticket, setTicket } = useTicketStore();
   // No ticket is selected by default until the user selects one.
   const [count, setCount] = useState<string>("1");
-  const [selectedTicket, setSelectedTicket] = useState<string>(""); 
+  const [selectedTicket, setSelectedTicket] = useState<string>("");
   const [error, setError] = useState("");
 
   // Update state when a ticket is selected; no default selection.
@@ -77,10 +77,13 @@ const TicketSelection = () => {
   return (
     <div className="max-w-[700px] mx-auto bg-[#041E23] p-12 border border-[#0E464F] rounded-[32px] md:rounded-[40px]">
       <div className="mx-auto relative">
-        <h2 className="text-[32px] mb-4 text-[#FFFFFF] font-[Jejumyeongjo]">
-          Ticket Selection
-        </h2>
-        <ProgressBar step={1} />
+        <div className=" sm:flex justify-between items-center">
+          <h2 className=" text-[32px]  text-[#FFFFFF] font-[Jejumyeongjo]">
+            Ticket Selection
+          </h2>
+          <p className="text-start font-semibold text-white">Step 1 / 3</p>
+        </div>
+        <ProgressBar progress={30} />
 
         {/* Event Details */}
         <div
@@ -111,11 +114,10 @@ const TicketSelection = () => {
             <div
               key={t.id}
               onClick={() => handleTicketSelect(t.name)}
-              className={`py-[12px] pl-[12px] pr-[10px] flex-1 rounded-[12px] shadow w-full border cursor-pointer transition ${
-                selectedTicket === t.name
+              className={`py-[12px] pl-[12px] pr-[10px] flex-1 rounded-[12px] shadow w-full border cursor-pointer transition ${selectedTicket === t.name
                   ? "bg-[#12464E] border-[#197686]"
                   : "border-[#197686]"
-              }`}
+                }`}
             >
               <p className="text-[#FFFFFF] font-semibold jost text-[24px]">
                 {t.price === 0 ? "Free" : `$${t.price}`}

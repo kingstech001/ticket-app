@@ -51,7 +51,7 @@ export default function PreviewPage() {
   return (
     <div className="mx-auto bg-[#041E23] border border-[#0E464F] rounded-[24px] md:rounded-[40px] p-[24px] md:p-[48px] max-w-[700px]">
       <div className="relative">
-        <div className=" sm:flex justify-between items-center">
+        <div className="flex justify-between items-center">
           <h2 className="text-[24px] md:text-[32px] mb-4 text-[#FFFFFF] font-[Jejumyeongjo] ">
             Ready
           </h2>
@@ -69,7 +69,7 @@ export default function PreviewPage() {
         {/* Fixed-size container for the background image, ticket card and barcode */}
         <div
           ref={ticketRef}
-          className="w-[300px] h-[620px] bg-[url('/image/TICKET.svg')] bg-no-repeat bg-contain bg-center p-4 mx-auto"
+          className="w-[300px] h-auto bg-[url('/image/TICKET.svg')] bg-no-repeat bg-cover bg-center p-4 mx-auto"
         >
           {/* Ticket Details Card */}
           <div

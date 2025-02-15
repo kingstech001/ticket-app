@@ -95,7 +95,7 @@ export default function FormPage() {
   return (
     <main className="max-w-[700px] mx-auto bg-[#041E23] p-[20px] md:p-[48px] border border-[#0E464F] rounded-[20px] md:rounded-[40px]">
       <div className="relative">
-        <div className=" sm:flex justify-between items-center">
+        <div className="flex justify-between items-center">
           <h2 className="text-[24px] md:text-[32px] mb-4 text-[#FFFFFF] font-[Jejumyeongjo]">
             Attendee Details
           </h2>

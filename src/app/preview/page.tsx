@@ -69,7 +69,7 @@ export default function PreviewPage() {
         {/* Fixed-size container for the background image, ticket card and barcode */}
         <div
           ref={ticketRef}
-          className="w-[300px] h-auto bg-[url('/image/TICKET.svg')] bg-no-repeat bg-cover bg-center p-4 mx-auto"
+          className="w-[300px] h-[600px] bg-[url('/image/TICKET.svg')] bg-no-repeat bg-contain bg-center p-4 mx-auto flex flex-col justify-between"
         >
           {/* Ticket Details Card */}
           <div
@@ -85,18 +85,21 @@ export default function PreviewPage() {
               📅 March 15, 2025 | 7:00 PM
             </p>
             {ticket.avatar && (
-              <Image
-                src={ticket.avatar}
-                alt="Avatar"
-                width={124}
-                height={124}
-                className="object-cover rounded-[12px] border-[4px] border-[#24A0B5] mx-auto my-[20px]"
-              />
+
+              <div className="relative w-full max-w-[124px] aspect-square mx-auto my-[20px] rounded-[12px] border-[4px] border-[#24A0B5] overflow-hidden">
+                <Image
+                  src={ticket.avatar}
+                  alt="Avatar"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
             )}
 
             {/* Grid for ticket details using one-sided borders */}
             <div className="mt-4 grid grid-cols-2 bg-[#08343C] p-[4px] rounded-[8px] overflow-hidden">
-              <div className="p-2 border-b border-[#0E464F] text-start">
+              <div className="p-[4px] border-b border-[#0E464F] text-start">
                 <p className="text-[10px] uppercase text-[#506f74] font-roboto mb-[4px]">
                   Enter your name
                 </p>
@@ -104,7 +107,7 @@ export default function PreviewPage() {
                   {ticket.name || "Not Provided"}
                 </p>
               </div>
-              <div className="p-2 border-l border-b border-[#0E464F] text-start">
+              <div className=" border-l border-b border-[#0E464F] text-start">
                 <p className="text-[10px] uppercase text-[#506f74] font-roboto mb-[4px]">
                   Enter your email *
                 </p>
@@ -112,7 +115,7 @@ export default function PreviewPage() {
                   {ticket.email || "Not Provided"}
                 </p>
               </div>
-              <div className="p-2 border-t border-[#0E464F] text-start">
+              <div className=" border-t border-[#0E464F] text-start">
                 <p className="text-[10px] uppercase text-[#506f74] font-roboto mb-[4px]">
                   Type
                 </p>
@@ -120,19 +123,19 @@ export default function PreviewPage() {
                   {ticket.ticketType || "Not Selected"}
                 </p>
               </div>
-              <div className="p-2 border-l border-t border-[#0E464F] text-start">
+              <div className=" p-[4px] border-l border-t border-[#0E464F] text-start">
                 <p className="text-[10px] uppercase text-[#506f74] font-roboto mb-[4px]">
                   Ticket for :
                 </p>
-                <p className="text-sm font-medium">
+                <p className="text-[12px] font-medium">
                   {ticket.ticketCount || 1}
                 </p>
               </div>
-              <div className="col-span-2 p-2 border-t border-[#0E464F] text-start">
+              <div className="col-span-2 border-t border-[#0E464F] text-start">
                 <p className="text-[10px] uppercase text-[#506f74] font-roboto mb-[4px]">
                   Special request?
                 </p>
-                <p className="text-[12px] font-medium">
+                <p className="text-[10px] font-medium">
                   {ticket.about || "Not Provided"}
                 </p>
               </div>
@@ -143,7 +146,7 @@ export default function PreviewPage() {
             alt="barcode"
             width={236}
             height={100}
-            className="pt-[30px] block mx-auto"
+            className="block mx-auto"
           />
         </div>
         <div className="flex flex-col sm:flex-row gap-[24px] mt-8 text-[16px]">

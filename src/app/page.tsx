@@ -115,8 +115,8 @@ const TicketSelection = () => {
               key={t.id}
               onClick={() => handleTicketSelect(t.name)}
               className={`py-[12px] pl-[12px] pr-[10px] flex-1 rounded-[12px] shadow w-full border cursor-pointer transition ${selectedTicket === t.name
-                  ? "bg-[#12464E] border-[#197686]"
-                  : "border-[#197686]"
+                ? "bg-[#12464E] border-[#197686]"
+                : "border-[#197686]"
                 }`}
             >
               <p className="text-[#FFFFFF] font-semibold jost text-[24px]">
@@ -134,23 +134,35 @@ const TicketSelection = () => {
 
         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
 
-        {/* Ticket Quantity Input */}
+        {/* Ticket Quantity Dropdown */}
         <div className="flex flex-col my-8">
           <h2 className="jost text-[#FFFFFF] text-[20px] font-semibold mb-2">
             Number of Tickets
           </h2>
           <div className="relative w-full">
-            <input
-              type="text"
-              className="border border-[#07373F] p-3 w-full rounded-md bg-transparent text-white focus:outline-none custom-number-input"
+            <select
               value={count}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              inputMode="numeric"
-            />
-            <FaChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white" />
+              onChange={(e) => {
+                const value = e.target.value;
+                setCount(value);
+                localStorage.setItem("ticketCount", value);
+                console.log("Ticket count updated:", value);
+              }}
+              className="border border-[#07373F] p-3 w-full rounded-md bg-transparent text-white focus:outline-none appearance-none"
+            >
+              {Array.from({ length: 10 }, (_, index) => {
+                const value = index + 1;
+                return (
+                  <option key={value} value={value} className="text-black">
+                    {value}
+                  </option>
+                );
+              })}
+            </select>
+            <FaChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white pointer-events-none" />
           </div>
         </div>
+
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-[24px] mt-8 text-[16px]">

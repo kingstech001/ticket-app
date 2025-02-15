@@ -27,26 +27,6 @@ const TicketSelection = () => {
     console.log("Ticket type selected:", ticketName);
   };
 
-  // Update ticket count and save to local storage.
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (value === "" || /^[0-9]+$/.test(value)) {
-      setCount(value);
-      localStorage.setItem("ticketCount", value || "1");
-      setError("");
-      console.log("Ticket count updated:", value || "1");
-    }
-  };
-
-  // Ensure at least one ticket is selected when input loses focus.
-  const handleBlur = () => {
-    if (count === "" || Number(count) < 1) {
-      setCount("1");
-      localStorage.setItem("ticketCount", "1");
-      console.log("Ticket count corrected to 1");
-    }
-  };
-
   // Validate inputs, merge details, save to local storage, and navigate to the next page.
   const handleNext = () => {
     const errors: string[] = [];
@@ -77,8 +57,8 @@ const TicketSelection = () => {
   return (
     <div className="max-w-[700px] mx-auto bg-[#041E23] p-12 border border-[#0E464F] rounded-[32px] md:rounded-[40px]">
       <div className="mx-auto relative">
-        <div className=" sm:flex justify-between items-center">
-          <h2 className=" text-[32px]  text-[#FFFFFF] font-[Jejumyeongjo]">
+        <div className="sm:flex justify-between items-center">
+          <h2 className="text-[32px] text-[#FFFFFF] font-[Jejumyeongjo]">
             Ticket Selection
           </h2>
           <p className="text-start font-semibold text-white">Step 1 / 3</p>
@@ -97,7 +77,8 @@ const TicketSelection = () => {
             Techember Fest ’25
           </h1>
           <p className="text-[14px] md:text-[16px] font-[roboto] text-gray-100 max-w-[300px] mx-auto">
-            Join us for an unforgettable experience at [Event Name]! Secure your spot now.
+            Join us for an unforgettable experience at [Event Name]! Secure your spot
+            now.
           </p>
           <p className="font-[roboto] text-gray-100 mt-[8px]">
             📍 [Event Location] || March 15, 2025 | 7:00 PM
@@ -114,10 +95,11 @@ const TicketSelection = () => {
             <div
               key={t.id}
               onClick={() => handleTicketSelect(t.name)}
-              className={`py-[12px] pl-[12px] pr-[10px] flex-1 rounded-[12px] shadow w-full border cursor-pointer transition ${selectedTicket === t.name
-                ? "bg-[#12464E] border-[#197686]"
-                : "border-[#197686]"
-                }`}
+              className={`py-[12px] pl-[12px] pr-[10px] flex-1 rounded-[12px] shadow w-full border cursor-pointer transition ${
+                selectedTicket === t.name
+                  ? "bg-[#12464E] border-[#197686]"
+                  : "border-[#197686]"
+              }`}
             >
               <p className="text-[#FFFFFF] font-semibold jost text-[24px]">
                 {t.price === 0 ? "Free" : `$${t.price}`}
@@ -163,7 +145,6 @@ const TicketSelection = () => {
           </div>
         </div>
 
-
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-[24px] mt-8 text-[16px]">
           <button
@@ -177,7 +158,7 @@ const TicketSelection = () => {
             Cancel
           </button>
           <button
-            className="bg-[#24A0B5] text-[#FFFFFF] flex-1 py-3 rounded-md  transition font-[Jejumyeongjo]"
+            className="bg-[#24A0B5] text-[#FFFFFF] flex-1 py-3 rounded-md transition font-[Jejumyeongjo]"
             onClick={handleNext}
           >
             Next
